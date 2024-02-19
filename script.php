@@ -37,7 +37,18 @@ $games = [
     'away-points'=> 130
 ],
 
-]
+];
+
+$name = $_GET['name'];
+$age = $_GET['age'];
+$email = $_GET['email'];
+
+if(strlen($name) >= 3 && is_numeric($age) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+   $result ='Accesso autorizzato!';
+}else 
+$result = 'Accesso negato!';
+
+
 
 ?>
 
@@ -57,6 +68,8 @@ $games = [
             </li>
         <?php endforeach ?>
     </ul>
+    <h1><?= $result ?></h1>
+
     
     
 </body>
